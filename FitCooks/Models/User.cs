@@ -45,7 +45,7 @@ namespace Workshop2019UMParte1.Models
                     .HasOne(t => t.user)
                     .WithMany(u => u.Tasks)
                     .HasForeignKey(t => t.user_id)
-                    .HasConstraintName("ForeignKey_User_Task");
+                    .HasConstraintName("ForeignKey_User_Task"); 
         }
 
 
