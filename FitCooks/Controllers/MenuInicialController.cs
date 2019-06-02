@@ -10,7 +10,7 @@ namespace FitCooks.Controllers
 {
     public class MenuInicialController : Controller
     {
-        private UserHandling userHandling;
+        private UtilizadorHandling utilizadorHandling;
         public IActionResult Index()
         {
             return View();
@@ -31,22 +31,19 @@ namespace FitCooks.Controllers
             return View();
         }
 
-        public IActionResult editarPerfil([Bind] User user)
+        public IActionResult editarPerfil(String nome, String email, String username, String password)
         {
             if (ModelState.IsValid)
             {
-                bool EditStatus = this.userHandling.getUser(user);
-                if (EditStatus)
-                {
-                    ModelState.Clear();
-                    TempData["Success"] = "Registration Successful!";
-                }
-                else
-                {
-                    TempData["Fail"] = "This User ID already exists. Registration Failed.";
-                }
+                ModelState.Clear();
+                TempData["Success"] = "Registration Successful!";
+                return View();
+             }
+
+                TempData["Fail"] = "This User ID already exists. Registration Failed.";
+               
                 return View();
             }
         }
-    }
 }
+

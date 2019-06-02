@@ -18,7 +18,7 @@
                         <li class="nav-item">
                             @if (User.Identity.IsAuthenticated)
                             {
-                            <a asp-controller="UserView" asp-action="Logout">
+                            <a asp-controller="UtilizadorView" asp-action="Logout">
                                 <div class="text-body h3">
                                     Hello @User.Identity.Name (Sign Out)
                                 </div>
@@ -26,7 +26,7 @@
                             }
                             else
                             {
-                                <a asp-controller="UserView" asp-action="UserLogin">
+                                <a asp-controller="UtilizadorView" asp-action="UserLogin">
                                     <div class="text-body h3">
                                         Login
                                     </div>
@@ -36,7 +36,15 @@
                     </ul>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark h3" asp-controller="Home" asp-action="Index">FitCooks</a>
+                            @if (User.Identity.IsAuthenticated == false)
+                            {
+                                <a class="nav-link text-dark h3" asp-controller="Home" asp-action="Index">FitCooks</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link text-dark h3" asp-controller="MenuInicial" asp-action="Index">FitCooks</a>
+                            }
+
                         </li>
 
 

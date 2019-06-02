@@ -10,8 +10,8 @@ namespace FitCooks.Controllers
     [Route("api/[controller]")]
     public class TaskController : Controller
     {
-        private readonly UserContext _context;
-        public TaskController(UserContext context)
+        private readonly UtilizadorContext _context;
+        public TaskController(UtilizadorContext context)
         {
             _context = context;
         }

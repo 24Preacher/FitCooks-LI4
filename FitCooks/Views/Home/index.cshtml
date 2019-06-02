@@ -1,20 +1,7 @@
-﻿
-@if (User.Identity.IsAuthenticated == false)
-{
-    <div class="text-center">
+﻿    <div class="text-center">
         <h1 class="display-1">Bem vindo!</h1>
-        <p><a asp-controller="UserView" asp-action="getUsers" class="text-body h4">Ver utilizadores</a></p>
-        <p><a asp-controller="UserView" asp-action="RegisterUser" class="text-body h4">Registar</a></p>
-        <p><a asp-controller="UserView" asp-action="UserLogin" class="text-body h4">Login</a></p>
+        <p><a asp-controller="UtilizadorView" asp-action="getUsers" class="text-body h4">Ver utilizadores</a></p>
+        <p><a asp-controller="UtilizadorView" asp-action="RegisterUser" class="text-body h4">Registar</a></p>
+        <p><a asp-controller="UtilizadorView" asp-action="UserLogin" class="text-body h4">Login</a></p>
     </div>
-}
-else
-{
-    <div class="text-center">
-        <h1 class="display-1"> Menu Inicial</h1>
-        <p><a asp-controller="MenuInicial" asp-action="pesquisarReceita" class="btn btn-dark">Pesquisar receita</a></p>
-        <p><a asp-controller="MenuInicial" asp-action="adicionarReceita" class="btn btn-dark">Adicionar receita</a></p>
-        <p><a asp-controller="MenuInicial" asp-action="verFavoritos" class="btn btn-dark">Favoritos</a></p>
-        <p><a asp-controller="MenuInicial" asp-action="EditarPerfil" class="btn btn-dark">Editar perfil</a></p>
-    </div>
-}
+

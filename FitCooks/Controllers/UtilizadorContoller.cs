@@ -14,20 +14,20 @@ using FitCooks.shared;
 namespace FitCooks.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class UtilizadorController : Controller
     {
 
-        private UserHandling userHandling;
-        public UserController(UserContext context)
+        private UtilizadorHandling utilizadorHandling;
+        public UtilizadorController(UtilizadorContext context)
         {
-            userHandling = new UserHandling(context);
+            utilizadorHandling = new UtilizadorHandling(context);
         }
 
         [Authorize]
         [HttpGet]
-        public User[] Get()
+        public Utilizador[] Get()
         {
-            return userHandling.getUsers();
+            return utilizadorHandling.getUsers();
         }
     }
 }

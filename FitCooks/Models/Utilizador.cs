@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FitCooks.Models
 {
-    public class User
+    public class Utilizador
     {
         [Key]
-        public int codigo { set; get; }
+        public int id_utilizador { set; get; }
         [Required]
         [StringLength(50)]
         public string nome { set; get; }
@@ -27,13 +28,22 @@ namespace FitCooks.Models
         [DataType(DataType.Password)]
         public string password { get; set; }
 
+        [StringLength(128)]
+        public string morada { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime data_nascimento { set; get; }
+
+        [StringLength(50)]
+        public string sexo { set; get; }
+
         public virtual ICollection<Task> Tasks { get; set; }
 
     }
 
-    public class UserContext : DbContext
+    public class UtilizadorContext : DbContext
     {
-        public UserContext(DbContextOptions<UserContext> options)
+        public UtilizadorContext(DbContextOptions<UtilizadorContext> options)
             : base(options)
         {
 
@@ -49,7 +59,7 @@ namespace FitCooks.Models
         }
 
 
-        public DbSet<User> user { get; set; }
+        public DbSet<Utilizador> utilizador { get; set; }
         public DbSet<Models.Task> task { get; set; }
     }
 }

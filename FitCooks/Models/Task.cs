@@ -22,6 +22,6 @@ namespace FitCooks.Models
         public int user_id { set; get; }
         [NotMapped]
         [JsonIgnore]
-        public User user { set; get; }
+        public Utilizador user { set; get; }
     }
 }

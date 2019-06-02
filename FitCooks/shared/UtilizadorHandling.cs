@@ -8,28 +8,23 @@ using FitCooks.Models;
 
 namespace FitCooks.shared
 {
-    public class UserHandling
+    public class UtilizadorHandling
     {
-        private readonly UserContext _context;
-        public UserHandling(UserContext context)
+        private readonly UtilizadorContext _context;
+        public UtilizadorHandling(UtilizadorContext context)
         {
             _context = context;
         }
 
-        public User[] getUsers()
+        public Utilizador[] getUsers()
         {
-            return _context.user.ToArray();
+            return _context.utilizador.ToArray();
         }
 
-        public User getUser(int id)
-        {
-            return _context.user.Find(id);
-        }
-
-        public bool validateUser(User user)
+        public bool validateUser(Utilizador user)
         {
             user.password = MyHelpers.HashPassword(user.password);
-            var returnedUser = _context.user.Where(b => b.username == user.username && b.password == user.password).FirstOrDefault();
+            var returnedUser = _context.utilizador.Where(b => b.username == user.username && b.password == user.password).FirstOrDefault();
 
             if (returnedUser == null)
             {
@@ -38,10 +33,15 @@ namespace FitCooks.shared
             return true;
         }
 
-        public bool registerUser(User user)
+        internal bool getUser(string nome)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool registerUser(Utilizador user)
         {
             user.password = MyHelpers.HashPassword(user.password);
-            _context.user.Add(user);
+            _context.utilizador.Add(user);
             _context.SaveChanges();
             return true;
         }

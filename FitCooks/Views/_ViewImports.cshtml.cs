@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Workshop2019UMParte1.Views
+namespace FitCooks.Views
 {
     public class IndexModel : PageModel
     {

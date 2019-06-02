@@ -13,20 +13,21 @@ namespace FitCooks.Controllers
 {
     
     [Route("[controller]/[action]")]
-    public class UserViewController : Controller
+    public class UtilizadorViewController : Controller
     {
 
-        private UserHandling userHandling;
-        public UserViewController(UserContext context)
+        private UtilizadorHandling utilizadorHandling;
+
+        public UtilizadorViewController(UtilizadorContext context)
         {
             //_context = context;
-            userHandling = new UserHandling(context);
+            utilizadorHandling = new UtilizadorHandling(context);
         }
         [Authorize]
         public IActionResult getUsers()
         {
-            User[] users = userHandling.getUsers();
-            return View(users);
+            Utilizador[] utilizadores = utilizadorHandling.getUsers();
+            return View(utilizadores);
         }
 
         [HttpGet]   
@@ -36,10 +37,10 @@ namespace FitCooks.Controllers
         }
 
         [HttpPost]
-        public IActionResult RegisterUser([Bind] User user)
+        public IActionResult RegisterUser([Bind] Utilizador user)
         {
             if (ModelState.IsValid){
-                bool RegistrationStatus = this.userHandling.registerUser(user);
+                bool RegistrationStatus = this.utilizadorHandling.registerUser(user);
                 if (RegistrationStatus){
                     ModelState.Clear();
                     TempData["Success"] = "Registration Successful!";
@@ -59,14 +60,14 @@ namespace FitCooks.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UserLogin([Bind] User user)
+        public async Task<IActionResult> UserLogin([Bind] Utilizador user)
         {
             ModelState.Remove("nome");
             ModelState.Remove("email");
 
             if (ModelState.IsValid)
             {
-                var LoginStatus = this.userHandling.validateUser(user);
+                var LoginStatus = this.utilizadorHandling.validateUser(user);
                 if (LoginStatus)
                 {
                     var claims = new List<Claim>
@@ -77,14 +78,14 @@ namespace FitCooks.Controllers
                     ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
 
                     await HttpContext.SignInAsync(principal);
-                    return RedirectToAction("getUsers", "UserView");
+                    return RedirectToAction("Index", "MenuInicial");
                 }
                 else
                 {
                     TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
                 }
             }
-            return RedirectToAction("Index","MenuInicialController");   
+            return RedirectToAction("Index","Home");   
         }
 
         [HttpGet]
