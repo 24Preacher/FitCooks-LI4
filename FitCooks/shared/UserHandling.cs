@@ -4,9 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Workshop2019UMParte1.Models;
+using FitCooks.Models;
 
-namespace Workshop2019UMParte1.shared
+namespace FitCooks.shared
 {
     public class UserHandling
     {

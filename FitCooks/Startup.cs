@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Workshop2019UMParte1.Models;
+using FitCooks.Models;
 
-namespace Workshop2019UMParte1
+namespace FitCooks
 {
     public class Startup
     {
@@ -18,7 +18,7 @@ namespace Workshop2019UMParte1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=DESKTOP-56VDECE;Database=TEST;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=DESKTOP-UBJL3N9;Database=TEST;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options =>

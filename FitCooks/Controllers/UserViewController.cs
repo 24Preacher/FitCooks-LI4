@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Workshop2019UMParte1.Models;
-using Workshop2019UMParte1.shared;
+using FitCooks.Models;
+using FitCooks.shared;
 
-namespace Workshop2019UMParte1.Controllers
+namespace FitCooks.Controllers
 {
     
     [Route("[controller]/[action]")]

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Workshop2019UMParte1.Models;
-using Workshop2019UMParte1.shared;
+using FitCooks.Models;
+using FitCooks.shared;
 
 namespace FitCooks.Controllers
 {
     public class MenuInicialController : Controller
     {
+        private UserHandling userHandling;
         public IActionResult Index()
         {
             return View();
@@ -34,7 +35,7 @@ namespace FitCooks.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool EditStatus = this.userHandling.registerUser(user);
+                bool EditStatus = this.userHandling.getUser(user);
                 if (EditStatus)
                 {
                     ModelState.Clear();

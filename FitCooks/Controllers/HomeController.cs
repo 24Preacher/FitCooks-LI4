@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Workshop2019UMParte1.Controllers
+namespace FitCooks.Controllers
 {
     public class HomeController : Controller
     {

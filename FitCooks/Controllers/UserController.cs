@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Workshop2019UMParte1.Models;
-using Workshop2019UMParte1.shared;
+using FitCooks.Models;
+using FitCooks.shared;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Workshop2019UMParte1
+namespace FitCooks.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller

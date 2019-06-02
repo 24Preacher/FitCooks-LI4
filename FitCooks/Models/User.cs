@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Workshop2019UMParte1.Models
+namespace FitCooks.Models
 {
     public class User
     {

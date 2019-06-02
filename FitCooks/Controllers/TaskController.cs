@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Workshop2019UMParte1.Models;
+using FitCooks.Models;
 
-namespace Workshop2019UMParte1.Controllers
+namespace FitCooks.Controllers
 {
     [Route("api/[controller]")]
     public class TaskController : Controller
