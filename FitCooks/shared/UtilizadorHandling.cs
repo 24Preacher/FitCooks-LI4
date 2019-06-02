@@ -11,6 +11,8 @@ namespace FitCooks.shared
     public class UtilizadorHandling
     {
         private readonly UtilizadorContext _context;
+        
+
         public UtilizadorHandling(UtilizadorContext context)
         {
             _context = context;
@@ -40,14 +42,14 @@ namespace FitCooks.shared
 
         public bool registerUser(Utilizador user)
         {
-            user.password = MyHelpers.HashPassword(user.password);
-            _context.utilizador.Add(user);
-            _context.SaveChanges();
-            return true;
+            //string username = user.username;
+            //if (_context.utilizador.Find(keyValues: username) != username)
+            //{
+                user.password = MyHelpers.HashPassword(user.password);
+                _context.utilizador.Add(user);
+                _context.SaveChanges();
+                return true;
+            }
+            
         }
-
-       
-
-
     }
-}

@@ -35,16 +35,18 @@ namespace FitCooks.Models
 
     public class ReceitaContext : DbContext
     {
-        public ReceitaContext(DbContextOptions<ReceitaContext> options)
-            : base(options)
-        {
+        
+            public ReceitaContext(DbContextOptions<ReceitaContext> options)
+                : base(options)
+            {
 
-        }
+            }
 
-
-        public DbSet<Receita> receita { get; set; }
-
+            public DbSet<Receita> receitas { get; set; }
+            
     }
 
-
 }
+
+
+

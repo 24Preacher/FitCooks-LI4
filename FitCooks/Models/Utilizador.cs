@@ -60,6 +60,7 @@ namespace FitCooks.Models
 
 
         public DbSet<Utilizador> utilizador { get; set; }
+
         public DbSet<Models.Task> task { get; set; }
     }
 }
