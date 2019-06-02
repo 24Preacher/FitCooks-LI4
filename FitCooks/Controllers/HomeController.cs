@@ -10,6 +10,7 @@ namespace Workshop2019UMParte1.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.BackgroudImage = "/Imagens/Background.jpg";
             return View();
         }
     }

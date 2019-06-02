@@ -84,7 +84,7 @@ namespace Workshop2019UMParte1.Controllers
                     TempData["UserLoginFailed"] = "Login Failed.Please enter correct credentials";
                 }
             }
-            return View();   
+            return RedirectToAction("Index","MenuInicialController");   
         }
 
         [HttpGet]

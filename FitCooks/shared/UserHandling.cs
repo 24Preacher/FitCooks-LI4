@@ -21,6 +21,11 @@ namespace Workshop2019UMParte1.shared
             return _context.user.ToArray();
         }
 
+        public User getUser(int id)
+        {
+            return _context.user.Find(id);
+        }
+
         public bool validateUser(User user)
         {
             user.password = MyHelpers.HashPassword(user.password);
