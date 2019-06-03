@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FitCooks.Migrations
 {
-    public partial class CreateFitCooksDB : Migration
+    public partial class FitCooksDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

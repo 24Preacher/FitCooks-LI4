@@ -10,7 +10,7 @@ namespace FitCooks.Controllers
 {
     public class MenuInicialController : Controller
     {
-        private FitcooksAPP handling;
+        private FitCooksAPP handling;
         public IActionResult Index()
         {
             return View();

@@ -1,0 +1,65 @@
+﻿@model FitCooks.Models.Etapas
+
+<div>
+    <header>
+        <nav class="navbar navbar-expand-sm na vbar-toggleable-sm navbar-light bg-transparent border-0 box-shadow mb-3">
+            <div class="container">
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/Etapas/AvancarEtapa?id=@ViewBag.receita?e=@ViewBag.etapa">
+                                <div class="text-body h3">
+                                    Avançar Etapa
+                                </div>
+                            </a>
+
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a href="/Etapas/RecuarEtapa/@ViewBag.receita/@ViewBag.etapa">
+                                <div class="text-body h3">
+                                    Recuar Etapa
+                                </div>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+
+<div>
+    <h4>Etapas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tempo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tempo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.instrucao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.instrucao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sugestao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sugestao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.receita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.receita.id_Receita)
+        </dd>
+    </dl>
+</div>

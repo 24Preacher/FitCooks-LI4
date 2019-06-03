@@ -10,14 +10,14 @@ using static FitCooks.Models.Receita;
 
 namespace FitCooks.Controllers
 {
-    [Route("food/[controller]")]
+    [Route("api/[controller]")]
     public class ReceitaController : Controller
     {
 
-        private FitcooksAPP handling;
+        private FitCooksAPP handling;
         public ReceitaController(FitCooksContext context)
         {
-            handling = new FitcooksAPP(context);
+            handling = new FitCooksAPP(context);
         }        
     }
 }

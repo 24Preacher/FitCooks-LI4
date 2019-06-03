@@ -18,10 +18,10 @@ namespace FitCooks.Controllers
     public class UtilizadorController : Controller
     {
 
-        private FitcooksAPP handling;
+        private FitCooksAPP handling;
         public UtilizadorController(FitCooksContext context)
         {
-            handling = new FitcooksAPP(context);
+            handling = new FitCooksAPP(context);
         }
 
         [Authorize]

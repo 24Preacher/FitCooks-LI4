@@ -143,4 +143,3 @@ namespace FitCooks.Models
         public DbSet<Classificacao> classificacaos { get; set; }
     }
 }
-

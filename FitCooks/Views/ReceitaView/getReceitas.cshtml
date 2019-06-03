@@ -10,14 +10,21 @@
     <thead>
         <tr>
             <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col"></th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var receita in Model)
         {
-            <tr>
-                <td>@receita.nome</td>
-            </tr>
+        <tr>
+            <td class="h6">@receita.nome</td>
+            <td class="h6">@receita.descricao</td>
+            <td><a href="/Etapas/VerEtapa?id=@receita.id_Receita"
+                               class="btn btn-dark"> Iniciar Receita </a></td>
+
+        </tr>
         }
     </tbody>
 

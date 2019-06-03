@@ -15,16 +15,28 @@ namespace FitCooks.Controllers
     [Route("[controller]/[action]")]
     public class ReceitaViewController : Controller
     {
-        private FitcooksAPP handling;
+        private FitCooksAPP handling;
 
         public ReceitaViewController(FitCooksContext context)
         {
             //_context = context;
-            handling = new FitcooksAPP(context);
+            handling = new FitCooksAPP(context);
         }
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult getReceitas()
+        {
+            Receita[] receitas = handling.getReceitas();
+            return View(receitas);
+        }
+
+        public IActionResult VerReceita(int id)
+        {
+            Receita receita = handling.getReceita(id);
+            return View(receita);
         }
     }
 }

@@ -5,16 +5,17 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using FitCooks.Models;
+using Microsoft.EntityFrameworkCore;
 using static FitCooks.Models.Utilizador;
 
 namespace FitCooks.shared
 {
-    public class FitcooksAPP
+    public class FitCooksAPP
     {
         private FitCooksContext _context;
 
 
-        public FitcooksAPP(FitCooksContext context)
+        public FitCooksAPP(FitCooksContext context)
         {
             _context = context;
         }
@@ -57,6 +58,21 @@ namespace FitCooks.shared
             return true;
         }
 
-        
+        public Receita[] getReceitas()
+        {
+            return _context.receitas.ToArray();
+        }
+
+        public Etapas[] getEtapas(int id)
+        {
+                Etapas[] array = _context.etapas.Where(r => r.id_Receita == id).ToArray();
+                return array;
+            
+        }
+
+        public Receita getReceita(int id)
+        {
+            return _context.receitas.Find(id);
+        }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitCooks.Migrations
 {
     [DbContext(typeof(FitCooksContext))]
-    [Migration("20190603151615_CreateFitCooksDB")]
-    partial class CreateFitCooksDB
+    [Migration("20190603201552_FitCooksDB")]
+    partial class FitCooksDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

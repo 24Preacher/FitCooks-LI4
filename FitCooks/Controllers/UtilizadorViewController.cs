@@ -17,12 +17,12 @@ namespace FitCooks.Controllers
     public class UtilizadorViewController : Controller
     {
 
-        private FitcooksAPP handling;
+        private FitCooksAPP handling;
 
         public UtilizadorViewController(FitCooksContext context)
         {
             //_context = context;
-            handling = new FitcooksAPP(context);
+            handling = new FitCooksAPP(context);
         }
         [Authorize]
         public IActionResult getUsers()
