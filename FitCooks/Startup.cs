@@ -18,12 +18,13 @@ namespace FitCooks
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=DESKTOP-UBJL3N9;Database=TEST;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+            var connection = @"Server=DESKTOP-UBJL3N9;Database=FitCooksDB;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<FitCooksContext>(options => options.UseSqlServer(connection));
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options =>
                     {
-                        options.LoginPath = "/UserView/UserLogin/";
+                        
+                        options.LoginPath = "/UtilizadorView/UserLogin/";
 
                     });
             services.AddMvc();//.AddControllersAsServices();
@@ -39,7 +40,6 @@ namespace FitCooks
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
-
 
         }
     }

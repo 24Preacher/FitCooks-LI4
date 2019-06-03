@@ -10,7 +10,7 @@ namespace FitCooks.Controllers
 {
     public class MenuInicialController : Controller
     {
-        private UtilizadorHandling utilizadorHandling;
+        private FitcooksAPP handling;
         public IActionResult Index()
         {
             return View();
@@ -31,7 +31,7 @@ namespace FitCooks.Controllers
             return View();
         }
 
-        public IActionResult editarPerfil(String nome, String email, String username, String password)
+        public IActionResult editarPerfil(Utilizador user)
         {
             if (ModelState.IsValid)
             {

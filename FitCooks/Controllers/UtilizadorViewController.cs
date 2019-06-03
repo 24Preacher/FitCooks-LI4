@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FitCooks.Models;
 using FitCooks.shared;
+using static FitCooks.Models.Utilizador;
 
 namespace FitCooks.Controllers
 {
@@ -16,17 +17,17 @@ namespace FitCooks.Controllers
     public class UtilizadorViewController : Controller
     {
 
-        private UtilizadorHandling utilizadorHandling;
+        private FitcooksAPP handling;
 
-        public UtilizadorViewController(UtilizadorContext context)
+        public UtilizadorViewController(FitCooksContext context)
         {
             //_context = context;
-            utilizadorHandling = new UtilizadorHandling(context);
+            handling = new FitcooksAPP(context);
         }
         [Authorize]
         public IActionResult getUsers()
         {
-            Utilizador[] utilizadores = utilizadorHandling.getUsers();
+            Utilizador[] utilizadores = handling.getUsers();
             return View(utilizadores);
         }
 
@@ -40,7 +41,7 @@ namespace FitCooks.Controllers
         public IActionResult RegisterUser([Bind] Utilizador user)
         {
             if (ModelState.IsValid){
-                bool RegistrationStatus = this.utilizadorHandling.registerUser(user);
+                bool RegistrationStatus = this.handling.registerUser(user);
                 if (RegistrationStatus){
                     ModelState.Clear();
                     TempData["Success"] = "Registration Successful!";
@@ -67,7 +68,7 @@ namespace FitCooks.Controllers
 
             if (ModelState.IsValid)
             {
-                var LoginStatus = this.utilizadorHandling.validateUser(user);
+                var LoginStatus = this.handling.validateUser(user);
                 if (LoginStatus)
                 {
                     var claims = new List<Claim>

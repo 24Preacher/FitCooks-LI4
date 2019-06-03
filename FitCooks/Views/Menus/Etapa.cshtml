@@ -1,0 +1,45 @@
+﻿@model FitCooks.Models.Etapas
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Etapa</title>
+</head>
+<body>
+
+<div>
+    <h4>Etapas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tempo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tempo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.instrucao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.instrucao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.sugestao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.sugestao)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

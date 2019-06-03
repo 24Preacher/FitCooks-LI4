@@ -8,27 +8,23 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FitCooks.Models;
 using FitCooks.shared;
-using static FitCooks.Models.Utilizador;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using static FitCooks.Models.Receita;
 
 namespace FitCooks.Controllers
 {
-    [Route("api/[controller]")]
-    public class UtilizadorController : Controller
+    [Route("[controller]/[action]")]
+    public class ReceitaViewController : Controller
     {
-
         private FitcooksAPP handling;
-        public UtilizadorController(FitCooksContext context)
+
+        public ReceitaViewController(FitCooksContext context)
         {
+            //_context = context;
             handling = new FitcooksAPP(context);
         }
-
-        [Authorize]
-        [HttpGet]
-        public Utilizador[] Get()
+        public IActionResult Index()
         {
-            return handling.getUsers();
+            return View();
         }
     }
 }

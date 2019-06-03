@@ -10,24 +10,11 @@ namespace FitCooks.Models
     public class Nutrientes
     {
 
-        [Key]
         public int id_Nutrientes { set; get; }
 
-        [Required]
-        [StringLength(50)]
         public string nome { set; get; }
-
-    }
-
-    public class NutrientesContext : DbContext
-    {
-        public NutrientesContext(DbContextOptions<NutrientesContext> options)
-            : base(options)
-        {
-
-        }
+        public ICollection<IngredientesNutrientes> ingredientesNutrientes { set; get; }
 
 
-        public DbSet<Nutrientes> nutrientes { get; set; }
     }
 }

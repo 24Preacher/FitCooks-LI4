@@ -10,6 +10,7 @@ namespace FitCooks.Controllers
     {
         public IActionResult Index()
         {
+            
             ViewBag.BackgroudImage = "/Imagens/Background.jpg";
             return View();
         }

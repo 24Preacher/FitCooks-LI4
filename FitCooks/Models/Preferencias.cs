@@ -9,22 +9,11 @@ namespace FitCooks.Models
 {
     public class Preferencias
     {
-        [Required]
-        public virtual Utilizador utilizador { set; get; }
+        public int id_utilizador { set; get; }
+        public  Utilizador utilizador { set; get; }
+        public int id_receita { set; get; }
 
-        [Required]
-        public virtual Receita receita { set; get; }
-    }
+        public  Receita receita { set; get; }
 
-    public class PreferenciasContext : DbContext
-    {
-        public PreferenciasContext(DbContextOptions<PreferenciasContext> options)
-            : base(options)
-        {
-
-        }
-
-
-        public DbSet<Preferencias> preferencias { get; set; }
     }
 }

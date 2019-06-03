@@ -10,41 +10,25 @@ namespace FitCooks.Models
 {
     public class Receita
     {
-        [Key]
+       
         public int id_Receita { set; get; }
 
-        [Required]
-        [StringLength(50)]
         public string nome { set; get; }
 
-        [Required]
-        [StringLength(50)]
         public string descricao { set; get; }
 
-        //falta imagem 
-
-        [Required]
-        [StringLength(50)]
         public string categoria { set; get; }
 
-        [Required]
+       
         public float tempo { set; get; }
+        public int nEtapas { set; get; }
 
-        public virtual ICollection<Task> Tasks { get; set; }
+        public ICollection<Etapas> etapas { get; set; }
+        public ICollection<Classificacao> classificacaos { set; get; }
+        public ICollection<Preferencias> preferencias { set; get; }
+
     }
 
-    public class ReceitaContext : DbContext
-    {
-        
-            public ReceitaContext(DbContextOptions<ReceitaContext> options)
-                : base(options)
-            {
-
-            }
-
-            public DbSet<Receita> receitas { get; set; }
-            
-    }
 
 }
 

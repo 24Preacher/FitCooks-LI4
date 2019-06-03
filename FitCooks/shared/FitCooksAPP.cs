@@ -5,28 +5,29 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using FitCooks.Models;
+using static FitCooks.Models.Utilizador;
 
 namespace FitCooks.shared
 {
-    public class UtilizadorHandling
+    public class FitcooksAPP
     {
-        private readonly UtilizadorContext _context;
-        
+        private FitCooksContext _context;
 
-        public UtilizadorHandling(UtilizadorContext context)
+
+        public FitcooksAPP(FitCooksContext context)
         {
             _context = context;
         }
 
         public Utilizador[] getUsers()
         {
-            return _context.utilizador.ToArray();
+            return _context.utilizadores.ToArray();
         }
 
         public bool validateUser(Utilizador user)
         {
             user.password = MyHelpers.HashPassword(user.password);
-            var returnedUser = _context.utilizador.Where(b => b.username == user.username && b.password == user.password).FirstOrDefault();
+            var returnedUser = _context.utilizadores.Where(b => b.username == user.username && b.password == user.password).FirstOrDefault();
 
             if (returnedUser == null)
             {
@@ -42,14 +43,20 @@ namespace FitCooks.shared
 
         public bool registerUser(Utilizador user)
         {
-            //string username = user.username;
-            //if (_context.utilizador.Find(keyValues: username) != username)
-            //{
-                user.password = MyHelpers.HashPassword(user.password);
-                _context.utilizador.Add(user);
-                _context.SaveChanges();
-                return true;
+            string username = user.username;
+            int query = _context.utilizadores.Where(u => u.username == username).Count();
+        
+            if(query != 0)
+            {
+                return false;
             }
-            
+
+            user.password = MyHelpers.HashPassword(user.password);
+            _context.utilizadores.Add(user);
+            _context.SaveChanges();
+            return true;
         }
+
+        
     }
+}
